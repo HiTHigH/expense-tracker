@@ -29,7 +29,7 @@ def visualize_expenses():
     else:
         st.warning("No expenses to visualize!")
 
-st.title('DevDuniya Expense Tracker')
+st.title('Pocket Paisa')
 
 with st.sidebar:
     st.header('Add Expense')
