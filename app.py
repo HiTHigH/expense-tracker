@@ -47,7 +47,7 @@ with st.sidebar:
     st.header('File Operations')
     if st.button('Save Expenses'):
         save_expenses()
-    if st.button('load expenses')
+    if st.button('load expenses'):
         load_expenses()
 st.header('Expenses')
 
