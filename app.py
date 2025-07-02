@@ -47,8 +47,12 @@ with st.sidebar:
     st.header('File Operations')
     if st.button('Save Expenses'):
         save_expenses()
-    if st.button('Load Expenses'):
-        load_expenses()
+   st.header('File Operations')
+uploaded_file = st.file_uploader("Choose a CSV file to load expenses", type=['csv'])
+if uploaded_file is not None:
+    st.session_state.expenses = pd.read_csv(uploaded_file)
+    st.session_state.expenses_loaded = True
+    st.success("Expenses loaded successfully!")
 st.header('Expenses')
 
 expenses_df = st.session_state.expenses
