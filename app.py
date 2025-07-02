@@ -15,6 +15,9 @@ def load_expenses():
     uploaded_file = st.file_uploader("Choose a file", type=['csv'])
     if uploaded_file is not None:
         st.session_state.expenses = pd.read_csv(uploaded_file)
+        st.session_state.expenses_loaded = True
+        st.success("Expenses loaded successfully!")
+
 
 def save_expenses():
     st.session_state.expenses.to_csv('expenses.csv', index=False)
@@ -79,5 +82,9 @@ else:
 
 
 st.header('Visualization')
+# Automatically visualize if file just loaded
+if 'expenses_loaded' in st.session_state and st.session_state.expenses_loaded:
+    visualize_expenses()
+    st.session_state.expenses_loaded = False
 if st.button('Visualize Expenses'):
     visualize_expenses() 
